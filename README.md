@@ -57,7 +57,7 @@ If you often write new cards or make changes to the cloze text of cards you may 
 
 Embedding Text Documents and Modifying Relevant Notes/Cards:
 
-The program `doc_comparison.py` is run for every document you want to compare against your deck.
+The program "doc_comparison.py" is run for every document you want to compare against your deck.
 
 Enter `python doc_comparison.py` into the terminal and you will be prompted to make sure that the document you want to use is placed in the "input" folder which itself is in the "anki_automation_v1" folder. You can drag as many documents as you like into the 'input' folder and they will be selectable when running the program.
 

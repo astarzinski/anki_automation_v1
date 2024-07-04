@@ -11,6 +11,7 @@ import requests
 import json
 import sys
 import numpy as np
+import csv
 
 # AnkiConnect URL
 ANKI_CONNECT_URL = 'http://localhost:8765'
@@ -385,14 +386,18 @@ def update_anki(note_ids, note_card_dict):
                         if record[1] == card_id:
                             output_data[i] = (record[0], record[1], record[2], record[3], card_status[card_id])
 
-    # Save the output data to a file with a timestamp
+    # Save the output data to a CSV file with a timestamp
     timestamp = datetime.now().strftime('%Y_%b_%d_%H_%M')
     output_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'output')
-    output_filename = f'anki_modifications_output_{timestamp}.txt'
+    output_filename = f'anki_modifications_output_{timestamp}.csv'
     os.makedirs(output_dir, exist_ok=True)
-    with open(os.path.join(output_dir, output_filename), 'w') as f:
+    with open(os.path.join(output_dir, output_filename), 'w', newline='') as csvfile:
+        csv_writer = csv.writer(csvfile)
+        # Write header
+        csv_writer.writerow(['Note ID', 'Card ID', 'Note Text', 'Added Tags', 'Card Status'])
+        # Write data
         for record in output_data:
-            f.write(str(record) + '\n')
+            csv_writer.writerow(record)
 
     if action not in [1, 2, 3]:
         print("Invalid action.")

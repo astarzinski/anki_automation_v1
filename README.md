@@ -56,7 +56,7 @@ Your environment is now ready to run the programs!
 
 The program "anki_deck_embedding.py" needs to only be run once which is good because it is very computationally intensive and takes around 12 minutes for 28,000 notes on an M1 Mac with 16 GB of RAM.
 
-8) To run this program make sure Anki is running and enter `python anki_deck_embedding.py` into the terminal.
+8) To run this program make sure Anki is running and enter `python3 anki_deck_embedding.py` into the terminal.
 
 9) You will be asked to select the deck you wish to process. Enter the number of the deck in the displayed menu.
 
@@ -66,7 +66,7 @@ If you often write new cards or make changes to the cloze text of cards you may 
 
 The program "doc_comparison.py" is run for every document you want to compare against your deck.
 
-10) Enter `python doc_comparison.py` into the terminal and you will be prompted to make sure that the document you want to use is placed in the "input" folder which itself is in the "anki_automation_v1" folder.
+10) Enter `python3 doc_comparison.py` into the terminal and you will be prompted to make sure that the document you want to use is placed in the "input" folder which itself is in the "anki_automation_v1" folder.
 
 You can place as many documents as you like into the 'input' folder and they will be selectable when running the program.
 
@@ -90,10 +90,10 @@ For subsequent use of either program use the following in a fresh terminal windo
 
 ```
 cd path/to/anki_automation_v1
-python doc_comparison.py
+python3 doc_comparison.py
 ```
 OR
 ```
 cd path/to/anki_automation_v1
-python anki_deck_embedding.py
+python3 anki_deck_embedding.py
 ```

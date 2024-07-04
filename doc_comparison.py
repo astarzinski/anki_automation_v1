@@ -10,6 +10,7 @@ from sklearn.metrics.pairwise import cosine_similarity
 import requests
 import json
 import sys
+import numpy as np
 
 # AnkiConnect URL
 ANKI_CONNECT_URL = 'http://localhost:8765'
@@ -210,7 +211,8 @@ def create_embeddings(file_path):
     with open(file_path, 'r', encoding='utf-8') as file:
         text = file.read()
 
-    embeddings = model.encode([text], show_progress_bar=True)
+    frames = divide_text_into_frames(text, 30, 5)
+    embeddings = model.encode(frames, show_progress_bar=True)
     
     pickle_file = os.path.join(os.path.dirname(os.path.dirname(file_path)), 'pickle', 'pdf_text_embeddings.pkl')
     with open(pickle_file, 'wb') as f:
@@ -220,6 +222,14 @@ def create_embeddings(file_path):
     return pickle_file
 
 # Program 3: Embed comparison and scoring
+
+def divide_text_into_frames(text, frame_size, step_size):
+    words = text.split()
+    frames = []
+    for i in range(0, len(words) - frame_size + 1, step_size):
+        frame = ' '.join(words[i:i + frame_size])
+        frames.append(frame)
+    return frames
 
 def compare_embeddings():
     current_directory = os.path.dirname(os.path.abspath(__file__))
@@ -235,7 +245,10 @@ def compare_embeddings():
     
     similarity = cosine_similarity(pdf_text_embeddings, note_card_embeddings)
     
-    similarities_list = [(note_card_ids[i], similarity[0][i]) for i in range(similarity.shape[1])]
+    # Calculate average similarity score for each note
+    average_scores = np.mean(similarity, axis=0)
+    
+    similarities_list = [(note_card_ids[i], average_scores[i]) for i in range(average_scores.shape[0])]
     similarities_list.sort(key=lambda x: x[1], reverse=True)
     
     top_similarities = similarities_list[:1001]

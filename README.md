@@ -13,7 +13,7 @@ AnkiConnect is available on AnkiWeb here: https://ankiweb.net/shared/info/205549
 
 AnkiConnect's detailed documentation can be found here: https://foosoft.net/projects/anki-connect/
 
-In order to connect to Anki via API, Anki needs to be running on your computer. I would recommend **NOT having any decks active** as well as **NOT making any changes in the Anki user interface** while the program is running.
+In order to connect to Anki via API, Anki needs to be running on your computer. I would recommend **NOT reviewing cards** as well as **NOT making any changes in the Anki user interface** while the program is running.
 
 I recommend:
 1) syncing your Anki with AnkiWeb prior to running the program

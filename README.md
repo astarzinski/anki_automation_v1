@@ -52,7 +52,7 @@ The repository has now been cloned to the folder you specified. Stay in the term
 
 6) Enter `cd anki_automation_v1` into the terminal and press <return>.
 
-7) Enter `pip install -r requirements.txt` and press <return>. The required python libraries will now be installed.
+7) Enter `pip3 install -r requirements.txt` and press <return>. The required python libraries will now be installed.
 
 Your environment is now ready to run the programs!
 

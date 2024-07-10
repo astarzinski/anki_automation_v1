@@ -22,9 +22,15 @@ I recommend:
 
 These safeguards will prevent unwanted changes while you are learning to use the program.
 
-## Step 1 Cloning This Repository
+These programs are desinged to use the latest version of python which as of this writing is version 3.12.4.
 
-At some point during this installation your Mac may prompt and require you to **install Xcode**.
+At some point during this installation your Mac may prompt and require you to **install Xcode developer tools**.
+
+If you need to install python on your computer you can download the latest version here: https://www.python.org/downloads/
+
+This process can be frustrating but searching any errors that the terminal displays will provide detailed troubleshooting options.
+
+## Step 1 Cloning This Repository
 
 1) On your Mac open the terminal or the equivalent on a PC. 
 

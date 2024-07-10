@@ -34,15 +34,11 @@ This process can be frustrating but searching any errors that the terminal displ
 
 1) On your Mac open the terminal or the equivalent on a PC. 
 
-2) Choose a folder on your computer where you want to interact with these programs.
-  
-3) Copy its filepath by going opening a finder window, selecting the "View" dropdown menu on the top left of your screen and clicking "Show Path Bar". The path bar is now visible on the bottom of all finder windows. Right click and select "Copy 'folder' as Pathname". Note that if there are spaces in any of the folder names on this path it may cause issues and I would recommend replacing any spaces with underscores "_" to avoid potential issues.
+2) Choose a folder on your computer where you want to interact with these programs. Open this folder in the terminal by opening a finder window, selecting the "View" dropdown menu on the top left of your screen and clicking "Show Path Bar". The path bar is now visible on the bottom of all finder windows. Right click and select "Open in Terminal".
 
-4) In the terminal type "cd" followed by a <space> and then paste the path to your chosen folder and press <return>.
+Note that if there are spaces in any of the folder names on this path it may cause issues and I would recommend replacing any spaces with underscores "_" to avoid potential issues.
 
-`cd path/to/your/folder/`
-
-5) Paste the following into the terminal and press <return>
+4) Paste the following into the terminal and press <return>
 
 `git clone https://github.com/astarzinski/anki_automation_v1.git`
 
@@ -50,9 +46,9 @@ The repository has now been cloned to the folder you specified. Stay in the term
 
 ## Step 2 Installing Required Dependencies (python add-ons)
 
-6) Enter `cd anki_automation_v1` into the terminal and press <return>.
+4) Enter `cd anki_automation_v1` into the terminal and press <return>.
 
-7) Enter `pip3 install -r requirements.txt` and press <return>. The required python libraries will now be installed.
+5) Enter `pip3 install -r requirements.txt` and press <return>. The required python libraries will now be installed.
 
 Your environment is now ready to run the programs!
 
@@ -62,9 +58,9 @@ Your environment is now ready to run the programs!
 
 The program "anki_deck_embedding.py" needs to only be run once which is good because it is very computationally intensive and takes around 12 minutes for 28,000 notes on an M1 Mac with 16 GB of RAM.
 
-8) To run this program make sure Anki is running and enter `python3 anki_deck_embedding.py` into the terminal.
+6) To run this program make sure Anki is running and enter `python3 anki_deck_embedding.py` into the terminal.
 
-9) You will be asked to select the deck you wish to process. Enter the number of the deck in the displayed menu.
+7) You will be asked to select the deck you wish to process. Enter the number of the deck in the displayed menu.
 
 If you often write new cards or make changes to the cloze text of cards you may want to periodically rerun this program as it will not incorporate any of the changes you make to the text of your cards unless you do. If you have an existing Anki deck embedding you will be asked to confirm that you want to create a new one.
 
@@ -72,7 +68,7 @@ If you often write new cards or make changes to the cloze text of cards you may 
 
 The program "doc_comparison.py" is run for every document you want to compare against your deck.
 
-10) Enter `python3 doc_comparison.py` into the terminal and you will be prompted to make sure that the document you want to use is placed in the "input" folder which itself is in the "anki_automation_v1" folder.
+8) Enter `python3 doc_comparison.py` into the terminal and you will be prompted to make sure that the document you want to use is placed in the "input" folder which itself is in the "anki_automation_v1" folder.
 
 You can place as many documents as you like into the 'input' folder and they will be selectable when running the program.
 
@@ -80,9 +76,9 @@ You can place as many documents as you like into the 'input' folder and they wil
 
 When you compare a selected document against your Anki deck you will see a color coded list of notes with the most related notes having the lowest indices and highest scores. you can select up to 1000 notes but in reality you will likely not want to tag more than 100. You will have to scroll up in the terminal to see the entire list. Each color red to purple has decreasing relatedness to the document and wider intervals between cards.
 
-11) You will **enter an integer value** for the index that you want to limit how many notes you tag (or note derrived cards you unlock or both).
+9) You will **enter an integer value** for the index that you want to limit how many notes you tag (or note derrived cards you unlock or both).
 
-12) If you have chosen to tag the indetified notes you will be prompted to enter a value for this tag. **Do NOT include any spaces**.
+10) If you have chosen to tag the indetified notes you will be prompted to enter a value for this tag. **Do NOT include any spaces**.
 
 A summary will populate at the end of the program.
 

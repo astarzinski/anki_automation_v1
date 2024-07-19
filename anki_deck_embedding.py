@@ -72,7 +72,7 @@ def clean_text(text):
         text = text.replace(entity, replacement)
     
     # Remove non-breaking space entities
-    text = re.sub('&nbsp;', '', text)
+    text = re.sub('&nbsp;', ' ', text)
     
     # Add space before patterns if not already present
     text = re.sub(r'(\S)(\{\{c\d+::)', r'\1 \2', text)

@@ -102,6 +102,12 @@ def clean_text(text):
     # Normalize spaces again after adding spaces around parentheses
     text = re.sub(r'\s+', ' ', text).strip()
     
+    # Make all text lowercase
+    text = text.lower()
+
+    # Remove any non-ASCII characters
+    text = re.sub(r'[^ -~]+', ' ', text)
+    
     return text
 
 # Function to get the first part of the text of a note and clean it
@@ -122,21 +128,6 @@ def check_for_embeddings(pickle_file):
                 return choice == 'y'
             print("Invalid input. Please enter 'y' or 'n'.")
     return True
-
-# Function to preprocess text
-def preprocess_text(text):
-    text = text.lower()
-    text = re.sub(r'[^ -~]+', ' ', text)
-    text = re.sub(r'\s+', ' ', text).strip()
-    
-    # Ensure spaces around parentheses
-    text = re.sub(r'\(', ' (', text)
-    text = re.sub(r'\)', ') ', text)
-    
-    # Normalize spaces again after adding spaces around parentheses
-    text = re.sub(r'\s+', ' ', text).strip()
-    
-    return text
 
 # Function to save note tuples to a file
 def save_note_tuples(file_path, note_tuples):
@@ -187,36 +178,25 @@ if __name__ == '__main__':
     note_ids_in_deck = get_all_notes_in_deck(selected_deck)
     print(f"Total number of notes in deck '{selected_deck}': {len(note_ids_in_deck)}")
 
-    # List to hold the tuples of noteID and text
+    # Lists to hold the tuples of noteID and text, noteID, and texts
     note_tuples = []
+    note_card_ids = []
+    note_card_texts = []
 
     # Process each note in the selected deck
     for note_id in tqdm(note_ids_in_deck, desc="Processing notes", unit="note"):
         text = get_note_text(note_id)
         note_tuples.append((note_id, text))
+        note_card_ids.append(note_id)
+        note_card_texts.append(text)
 
     # Save original note tuples to a file
-    original_file_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'debugging', f'int_card_emb_1.txt')
+    original_file_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'debugging', f'note_id_text.txt')
     save_note_tuples(original_file_path, note_tuples)
     print(f"Original note tuples saved to {original_file_path}")
 
-    # Preprocess note tuples
-    preprocessed_tuples = []
-    for note_id, text in note_tuples:
-        preprocessed_text = preprocess_text(text)
-        preprocessed_tuples.append((note_id, preprocessed_text))
-
-    # Save preprocessed note tuples to a file
-    preprocessed_file_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'debugging', f'int_card_emb_2.txt')
-    save_note_tuples(preprocessed_file_path, preprocessed_tuples)
-    print(f"Preprocessed note tuples saved to {preprocessed_file_path}")
-
     # Load the model
     model = SentenceTransformer('sentence-transformers/all-mpnet-base-v2')
-
-    # Extract texts and IDs
-    note_card_texts = [text for _, text in preprocessed_tuples]
-    note_card_ids = [id for id, _ in preprocessed_tuples]
 
     # Generate embeddings for the note cards
     embeddings = model.encode(note_card_texts, batch_size=32, show_progress_bar=True)

@@ -254,7 +254,7 @@ def compare_embeddings():
     
     top_similarities = similarities_list[:1001]
     
-    note_cards_file = os.path.join(current_directory, 'debugging', 'int_card_emb_2.txt')
+    note_cards_file = os.path.join(current_directory, 'debugging', 'note_id_text.txt')
     with open(note_cards_file, 'r', encoding='utf-8') as file:
         note_cards = eval(file.read())
 
@@ -268,19 +268,17 @@ def compare_embeddings():
         original_index = len(top_similarities) - 1 - i
         if original_index <= 25:
             print(f"\033[91m{original_index:<6} {score:<10.4f} {note_id:<15} {note_card_dict[note_id]}\033[0m")
-            print("~" * 80)
         elif original_index <= 100 and original_index % 5 == 0:
             print(f"\033[93m{original_index:<6} {score:<10.4f} {note_id:<15} {note_card_dict[note_id]}\033[0m")
-            print("~" * 80)
         elif original_index <= 200 and original_index % 10 == 0:
             print(f"\033[92m{original_index:<6} {score:<10.4f} {note_id:<15} {note_card_dict[note_id]}\033[0m")
-            print("~" * 80)
         elif original_index > 200 and original_index <= 500 and original_index % 25 == 0:
             print(f"\033[94m{original_index:<6} {score:<10.4f} {note_id:<15} {note_card_dict[note_id]}\033[0m")
-            print("~" * 80)
         elif original_index <= 1000 and original_index % 100 == 0:
             print(f"\033[95m{original_index:<6} {score:<10.4f} {note_id:<15} {note_card_dict[note_id]}\033[0m")
-            print("~" * 80)
+        else:
+            continue
+        print("~" * 80)
     print(f"{'^Index':<6} {'^Score':<10} {'^Note ID':<15} {'^Text'}")
     print("~" * 80)
     try:

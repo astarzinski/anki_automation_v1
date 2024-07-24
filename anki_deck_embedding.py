@@ -2,6 +2,7 @@ import requests
 import json
 import re
 import os
+import sys
 import pickle
 from tqdm import tqdm
 from sentence_transformers import SentenceTransformer
@@ -148,13 +149,13 @@ if __name__ == '__main__':
     # Check if embeddings already exist and ask user for update
     if not check_for_embeddings(pickle_file):
         print(f"Using existing embeddings from {pickle_file}")
-        exit()
+        sys.exit(1)
 
     # Get the list of decks
     decks = invoke('deckNames')
     if not decks:
         print("No decks found in Anki.")
-        exit()
+        sys.exit(1)
 
     # Present the list of decks to the user
     print("Available decks:")
@@ -166,10 +167,10 @@ if __name__ == '__main__':
         deck_choice = int(input("Enter the number of the deck you want to process: ")) - 1
         if deck_choice < 0 or deck_choice >= len(decks):
             print("Invalid choice.")
-            exit()
+            sys.exit(1)
     except ValueError:
         print("Invalid input. Please enter a number.")
-        exit()
+        sys.exit(1)
 
     selected_deck = decks[deck_choice]
     print(f"Selected deck: {selected_deck}")
@@ -203,6 +204,6 @@ if __name__ == '__main__':
 
     # Save embeddings and IDs to a pickle file
     with open(pickle_file, 'wb') as f:
-        pickle.dump((note_card_ids, embeddings), f)
+        pickle.dump((note_card_ids, note_card_texts, embeddings), f)
 
     print(f"Embeddings saved to {pickle_file}")

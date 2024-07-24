@@ -82,7 +82,7 @@ You can place as many documents as you like into the 'input' folder and they wil
 
 ## Step 4 Detailed Description of Note/Card Changes.
 
-When you compare a selected document against your Anki deck you will see a color coded list of notes with the most related notes having the lowest indices and highest scores. you can select up to 1000 notes but in reality you will likely not want to tag more than 100. You will have to scroll up in the terminal to see the entire list. Each color red to purple has decreasing relatedness to the document and wider intervals between cards.
+When you compare a selected document against your Anki deck you will see a color coded list of notes with the most related notes having the lowest indices and highest scores. you can select up to 250 notes but in reality you will likely not want to tag more than 100. You will have to scroll up in the terminal to see the entire list.
 
 9) You will **enter an integer value** for the index that you want to limit how many notes you tag (or note derrived cards you unlock or both).
 

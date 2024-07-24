@@ -1,5 +1,5 @@
 # Anki Automation Version 1.0
-This project leverages a sentence similarity LLM to compare user provided text to cloze-formatted Anki notes and allows users to automatically tag and/or unlock relevant cards.
+This project leverages a sentence similarity LLM to compare user provided text to **cloze-formatted Anki notes** and allows users to automatically tag and/or unlock relevant cards.
 
 These programs are grounded in the idea that aligning widely utilized Anki resources with the curricula of individual medical schools is prohibitively time consuming. The hope is that successive revisions of this resource will create an increasingly robust tool to automate this process and save students substantial amounts of time and energy.
 
@@ -7,13 +7,19 @@ This document will explain how to set up your computer to run these programs as 
 
 ## Step 0 Please Read
 
-These programs uses the **AnkiConnect API** to interact with the Anki application on your computer. Big thanks to Alex Yatskov whose development of this API made these programs possible.
+The Anki application can be obtained here: https://apps.ankiweb.net
+
+Premade Anki decks can be found on https://ankiweb.net
+
+These programs uses the **AnkiConnect API** to interact with the Anki application on your computer.
 
 AnkiConnect is available on AnkiWeb here: https://ankiweb.net/shared/info/2055492159 
 
-AnkiConnect's detailed documentation can be found here: https://foosoft.net/projects/anki-connect/
+AnkiConnect's detailed documentation can be found here: https://foosoft.net/projects/anki-connect
 
-In order to connect to Anki via API, Anki needs to be running on your computer. I would recommend **NOT reviewing cards** as well as **NOT making any changes in the Anki user interface** while the program is running.
+In order to connect to Anki via API, Anki needs to be running on your computer. 
+
+It is important to **_NOT review cards_** as well as **_NOT make any changes_ through the Anki user interface** while the program is running.
 
 I recommend:
 1) syncing your Anki with AnkiWeb prior to running the program
@@ -23,6 +29,8 @@ I recommend:
 These safeguards will prevent unwanted changes while you are learning to use the program.
 
 These programs are desinged to use the latest version of python which as of this writing is version 3.12.4.
+
+You can check if you need to install/update python by entering `which python3; python3 --version` into your terminal.
 
 At some point during this installation your Mac may prompt and require you to **install Xcode developer tools**.
 

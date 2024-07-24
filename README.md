@@ -9,7 +9,9 @@ This document will explain how to set up your computer to run these programs as 
 
 The Anki application can be obtained here: https://apps.ankiweb.net
 
-Premade Anki decks can be found on https://ankiweb.net (This program will only work with cloze formatting where cards have only one text field (not a front and back) and are formatted: "Prompt {{c1:\:Answer::Hint}}")
+Premade Anki decks can be found on https://ankiweb.net 
+
+I am not endorsing specific Anki decks, but please note that this program will only work with cloze formatting where cards have only one text field (not a front and back) and are formatted: "Prompt {{c1:\:Answer::Hint}}").
 
 These programs uses the **AnkiConnect API** to interact with the Anki application on your computer.
 

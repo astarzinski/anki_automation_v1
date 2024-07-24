@@ -22,9 +22,9 @@ In order to connect to Anki via API, Anki needs to be running on your computer.
 It is important to **_NOT review cards_** as well as **_NOT make any changes_ through the Anki user interface** while the program is running.
 
 I recommend:
-1) syncing your Anki with AnkiWeb prior to running the program
-2) **turning OFF automatic synchronization**
-3) familiarizing yourself with how to **force changes in one direction (Download from AnkiWeb)**.
+1) Syncing your Anki with AnkiWeb prior to running the program
+2) **Turning OFF automatic synchronization**
+3) Familiarizing yourself with how to **force changes in one direction (Download from AnkiWeb)**
 
 These safeguards will prevent unwanted changes while you are learning to use the program.
 

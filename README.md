@@ -96,7 +96,11 @@ You can now confirm that the desired changes were made in you anki deck.
 
 Finally, a summary document will appear in the "output" folder where you can see a detailed list of all of the note and card ID's that were modified in case you want to further curate the changes that were made to your Anki deck.
 
-## Step 5 Intermittent Access to the Programs via Terminal.
+## Step 5 Revision of Anki Modifications
+
+11) Using the document that was created at the end of the previous step the program `python3 user_anki_revision.py` can be run to edit, delete, or add tags to some or all of the notes that were modified through these programs, OR this same script can suspend or unsuspend some or all of the relevant cards.
+
+## Step 6 Intermittent Access to the Programs via Terminal.
 
 For subsequent use of either program use the following in a fresh terminal window:
 
@@ -108,4 +112,9 @@ OR
 ```
 cd path/to/anki_automation_v1
 python3 anki_deck_embedding.py
+```
+OR
+```
+cd path/to/anki_automation_v1
+python3 user_anki_revision.py
 ```
